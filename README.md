@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marassi Store | متجر مراسي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #f8f9fa; }
+        .coastal-gradient { background: linear-gradient(135deg, #003366 0%, #004080 100%); }
+        .card-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+        .modal-animate { transition: all 0.3s ease-out; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="coastal-gradient text-white pb-12 pt-6 px-4 rounded-b-[40px] shadow-2xl">
+        <nav class="flex justify-between items-center max-w-6xl mx-auto mb-8">
+            <h1 class="text-2xl font-bold tracking-tight">MARASSI <span class="text-yellow-400">STORE</span></h1>
+            <div class="bg-white/20 p-2 rounded-full px-4 text-sm backdrop-blur-md">توصيل سريع للساحل 🚚</div>
+        </nav>
+        <div class="text-center max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold mb-3">أقوى العروض في سيدي عبدالرحمن</h2>
+            <p class="opacity-90">اطلب الآن والدفع عند الاستلام.. شحن موحد 25 ج فقط!</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 -mt-8 pb-20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="bg-white rounded-3xl overflow-hidden card-shadow group">
+                <div class="relative overflow-hidden">
+                    <img src="https://via.placeholder.com/400x400?text=Product+Image" alt="منتج" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute top-4 right-4 bg-yellow-400 text-[#003366] font-bold px-3 py-1 rounded-full text-sm">الأكثر مبيعاً</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-[#003366] mb-2">اسم المنتج من سفقة</h3>
+                    <p class="text-gray-500 text-sm mb-4 leading-relaxed">هنا تكتب وصف المنتج الجذاب اللي بيخلي الزبون يشتري فوراً..</p>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                        <div>
+                            <span class="block text-gray-400 text-xs line-through">650 ج</span>
+                            <span class="text-2xl font-bold text-green-600">499 ج</span>
+                        </div>
+                        <button onclick="openModal('اسم المنتج', 499)" class="bg-[#003366] text-white px-8 py-3 rounded-2xl font-bold hover:bg-blue-800 transition-all shadow-lg active:scale-95">اطلب الآن</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </main>
+
+    <div id="modal" class="fixed inset-0 bg-black/60 hidden backdrop-blur-sm z-50 items-center justify-center p-4">
+        <div class="bg-white rounded-[32px] p-8 w-full max-w-md shadow-2xl modal-animate relative">
+            <button onclick="closeModal()" class="absolute top-6 left-6 text-gray-400 hover:text-gray-600 font-bold text-2xl">&times;</button>
+            
+            <h2 class="text-2xl font-bold mb-1 text-[#003366]">بيانات التوصيل</h2>
+            <p class="text-gray-500 text-sm mb-6 font-medium">سيتم تحويلك للواتساب لتأكيد طلبك</p>
+            
+            <form id="orderForm" class="space-y-4">
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-gray-500 mr-2">الاسم بالكامل</label>
+                    <input type="text" id="name" placeholder="محمد أحمد..." class="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none" required>
+                </div>
+                
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-gray-500 mr-2">رقم الموبايل</label>
+                    <input type="tel" id="phone" placeholder="01xxxxxxxxx" class="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none" required>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-gray-500 mr-2">المنطقة</label>
+                    <select id="region" class="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none appearance-none" required>
+                        <option value="">اختر منطقتك</option>
+                        <option value="سيدي عبدالرحمن">سيدي عبدالرحمن</option>
+                        <option value="العلمين">العلمين</option>
+                        <option value="الضبعة">الضبعة</option>
+                    </select>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-gray-500 mr-2">العنوان بالتفصيل</label>
+                    <textarea id="address" placeholder="اسم الشارع / رقم العمارة..." class="w-full p-4 bg-gray-50 border-none rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none h-24" required></textarea>
+                </div>
+                
+                <div class="bg-blue-50 p-5 rounded-[24px] border border-blue-100">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span>سعر المنتج</span>
+                        <span id="prodPrice" class="font-bold">0 ج</span>
+                    </div>
+                    <div class="flex justify-between text-sm mb-3">
+                        <span>مصاريف الشحن</span>
+                        <span class="font-bold text-blue-600">25 ج</span>
+                    </div>
+                    <div class="flex justify-between text-lg font-bold text-[#003366] pt-2 border-t border-blue-200">
+                        <span>الإجمالي الصافي</span>
+                        <span id="totalPrice">0 ج</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-green-600 text-white p-5 rounded-2xl font-bold text-lg hover:bg-green-700 transition-all shadow-lg shadow-green-200 flex justify-center items-center gap-2">
+                    <span>إرسال الطلب عبر واتساب</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.025 3.14l-.904 3.303 3.376-.884c.835.457 1.698.7 2.271.7 3.181 0 5.767-2.586 5.768-5.766a5.76 5.76 0 00-5.768-5.76zM12.03 5c3.844 0 6.96 3.116 6.96 6.96a6.95 6.95 0 01-6.96 6.96c-.662 0-1.282-.092-1.854-.265l-4.108 1.077 1.101-4.015c-.411-.643-.65-1.396-.65-2.204 0-3.844 3.116-6.96 6.96-6.96z"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="text-center py-10 text-gray-400 text-xs">
+        <p>© 2026 Marassi Store. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentProduct = "";
+        let currentPrice = 0;
+
+        function openModal(name, price) {
+            currentProduct = name;
+            currentPrice = price;
+            document.getElementById('prodPrice').innerText = price + " ج";
+            document.getElementById('totalPrice').innerText = (price + 25) + " ج";
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal').classList.add('flex');
+            document.body.style.overflow = 'hidden'; // قفل السكرول
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.body.style.overflow = 'auto'; // فتح السكرول
+        }
+
+        document.getElementById('orderForm').onsubmit = function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const region = document.getElementById('region').value;
+            const address = document.getElementById('address').value;
+            const total = currentPrice + 25;
+
+            // تنسيق الرسالة بشكل احترافي
+            const message = `*طلب جديد من متجر مراسي* 🛒%0A%0A` +
+                            `👤 *العميل:* ${name}%0A` +
+                            `📞 *الموبايل:* ${phone}%0A` +
+                            `📍 *المنطقة:* ${region}%0A` +
+                            `🏠 *العنوان:* ${address}%0A%0A` +
+                            `📦 *المنتج:* ${currentProduct}%0A` +
+                            `💰 *السعر:* ${currentPrice} ج%0A` +
+                            `🚚 *الشحن:* 25 ج%0A%0A` +
+                            `✅ *الإجمالي الصافي:* ${total} ج`;
+            
+            // رقم تليفونك
+            window.open(`https://wa.me/201228087085?text=${message}`, '_blank');
+        };
+    </script>
+</body>
+</html>
